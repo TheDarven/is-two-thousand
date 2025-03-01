@@ -4,6 +4,7 @@
 ### Deno ###
 /.idea/
 /.vscode/
+deno.lock
 
 /node_modules
 
