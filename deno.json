@@ -1,6 +1,6 @@
 {
   "name": "@thedarven/is-two-thousand",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "tasks": {
     "dev": "deno run --watch main.ts"
@@ -9,5 +9,15 @@
     "@std/assert": "jsr:@std/assert@1"
   },
   "exports": "./src/main.ts",
-  "exclude": ["**/*.test.ts"]
+  "publish": {
+    "include": [
+      "LICENSE",
+      "README.md",
+      "deno.json",
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "src/**/*.test.ts"
+    ]
+  }
 }
