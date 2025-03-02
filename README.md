@@ -1,5 +1,7 @@
 [![JSR](https://jsr.io/badges/@thedarven/is-two-thousand)](https://jsr.io/@thedarven/is-two-thousand)
 
+🔗 Project on [github](https://github.com/TheDarven/is-two-thousand)
+
 ## Description
 🎯 The aim of the project is purely to learn how to deploy project on JSR and npm.
 This project is a joke, it's not meant to be used in production.

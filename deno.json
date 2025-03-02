@@ -3,9 +3,14 @@
   "version": "1.0.2",
   "license": "MIT",
   "tasks": {
-    "dev": "deno run --watch main.ts"
+    "dev": "deno run --watch main.ts",
+    "build:npm": "deno run --allow-env=DENO_TRACE_PERMISSIONS,TS_ETW_MODULE_PATH,DENO_DIR,HOME,DENO_AUTH_TOKENS --allow-read --allow-write=./npm --allow-run=npm scripts/build_npm.ts",
+    "publish": "deno run publish:deno && deno run publish:npm",
+    "publish:deno": "deno publish --alow-dirty",
+    "publish:npm": "deno run build:npm $VERSION && cd npm && pnpm publish --no-git-checks "
   },
   "imports": {
+    "@deno/dnt": "jsr:@deno/dnt@^0.41.3",
     "@std/assert": "jsr:@std/assert@1"
   },
   "exports": "./src/main.ts",
