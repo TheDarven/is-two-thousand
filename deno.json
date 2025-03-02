@@ -1,13 +1,16 @@
 {
   "name": "@thedarven/is-two-thousand",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "tasks": {
     "dev": "deno run --watch main.ts",
-    "build:npm": "deno run --allow-env=DENO_TRACE_PERMISSIONS,TS_ETW_MODULE_PATH,DENO_DIR,HOME,DENO_AUTH_TOKENS --allow-read --allow-write=./npm --allow-run=npm scripts/build_npm.ts",
+    "get-version": "deno run --allow-read=deno.json scripts/get-version.ts",
+    "build": "deno run build:npm",
+    "build:npm": "VERSION=$(deno run scripts/get-version.ts) && deno run --allow-env=DENO_TRACE_PERMISSIONS,TS_ETW_MODULE_PATH,DENO_DIR,HOME,DENO_AUTH_TOKENS --allow-read --allow-write=./npm --allow-run=npm scripts/build_npm.ts $VERSION",
     "publish": "deno run publish:deno && deno run publish:npm",
-    "publish:deno": "deno publish --alow-dirty",
-    "publish:npm": "deno run build:npm $VERSION && cd npm && pnpm publish --no-git-checks "
+    "publish:deno": "deno publish --allow-dirty",
+    "publish:npm": " pnpm publish --no-git-checks",
+    "build-publish": "deno run build && deno run publish"
   },
   "imports": {
     "@deno/dnt": "jsr:@deno/dnt@^0.41.3",
