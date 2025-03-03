@@ -9,7 +9,7 @@
     "build:npm": "VERSION=$(deno run scripts/get-version.ts) && deno run --allow-env=DENO_TRACE_PERMISSIONS,TS_ETW_MODULE_PATH,DENO_DIR,HOME,DENO_AUTH_TOKENS --allow-read --allow-write=./npm --allow-run=npm scripts/build_npm.ts $VERSION",
     "publish": "deno run publish:deno && deno run publish:npm",
     "publish:deno": "deno publish --allow-dirty",
-    "publish:npm": " pnpm publish --no-git-checks",
+    "publish:npm": "pnpm publish --no-git-checks npm/",
     "build-publish": "deno run build && deno run publish"
   },
   "imports": {
